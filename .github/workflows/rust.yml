@@ -5,7 +5,7 @@ on: [push]
 jobs:
   build:
     strategy:
-      fast-fail: false
+      fail-fast: false
       matrix:
         target:
           - aarch64-apple-ios
