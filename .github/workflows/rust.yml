@@ -40,7 +40,9 @@ jobs:
         include:
           - target: aarch64-apple-ios
             os: macos-latest
+            toolchain: ${{ matrix.toolchain }}
           - target: x86_64-apple-ios
+            toolchain: ${{ matrix.toolchain }}
             os: macos-latest
         exclude:
           - target: aarch64-apple-ios
