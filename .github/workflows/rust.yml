@@ -78,33 +78,33 @@ jobs:
           target: ${{ matrix.target }}
           override: true
 
-      - name: Build default features
-        uses: actions-rs/cargo@v1
-        with:
-          use-cross: true
-          command: build
-          args: --target ${{ matrix.target }}
+          #- name: Build default features
+          #  uses: actions-rs/cargo@v1
+          #  with:
+          #    use-cross: true
+          #    command: build
+          #    args: --target ${{ matrix.target }}
 
-      - name: Run tests default features
-        uses: actions-rs/cargo@v1
-        with:
-          use-cross: true
-          command: test
-          args: --target ${{ matrix.target }}
+          #- name: Run tests default features
+          #  uses: actions-rs/cargo@v1
+          #  with:
+          #    use-cross: true
+          #    command: test
+          #    args: --target ${{ matrix.target }}
 
-      - name: Build all features
-        uses: actions-rs/cargo@v1
-        with:
-          use-cross: true
-          command: build
-          args: --target ${{ matrix.target }} --all-features
+          #- name: Build all features
+          #  uses: actions-rs/cargo@v1
+          #  with:
+          #    use-cross: true
+          #    command: build
+          #    args: --target ${{ matrix.target }} --all-features
 
-      - name: Run tests all features
-        uses: actions-rs/cargo@v1
-        with:
-          use-cross: true
-          command: test
-          args: --target ${{ matrix.target }} --all-features
+          #- name: Run tests all features
+          #  uses: actions-rs/cargo@v1
+          #  with:
+          #    use-cross: true
+          #    command: test
+          #    args: --target ${{ matrix.target }} --all-features
 
       - name: Build no features
         uses: actions-rs/cargo@v1
@@ -148,16 +148,16 @@ jobs:
           command: test
           args: --target ${{ matrix.target }} --no-default-features --features tokio_rustls
 
-      - name: Build native_tls
-        uses: actions-rs/cargo@v1
-        with:
-          use-cross: true
-          command: build
-          args: --target ${{ matrix.target }} --no-default-features --features tokio_native_tls
+          #- name: Build native_tls
+          #  uses: actions-rs/cargo@v1
+          #  with:
+          #    use-cross: true
+          #    command: build
+          #    args: --target ${{ matrix.target }} --no-default-features --features tokio_native_tls
 
-      - name: Run tests native_ts
-        uses: actions-rs/cargo@v1
-        with:
-          use-cross: true
-          command: test
-          args: --target ${{ matrix.target }} --no-default-features --features tokio_native_tls
+          #- name: Run tests native_ts
+          #  uses: actions-rs/cargo@v1
+          #  with:
+          #    use-cross: true
+          #    command: test
+          #    args: --target ${{ matrix.target }} --no-default-features --features tokio_native_tls
