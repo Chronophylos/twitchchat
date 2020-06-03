@@ -45,96 +45,96 @@ jobs:
               - i686-pc-windows-msvc
               - x86_64-pc-windows-msvc
 
-      runs-on: ${{matrix.os}}
+    runs-on: ${{matrix.os}}
 
-      steps:
-        - uses: actions/checkout@v2
-        - uses: actions-rs/toolchain@v1
-          with:
-            toolchain: ${{matrix.rust}}
-            target: ${{matrix.target}}
-            override: true
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: ${{matrix.rust}}
+          target: ${{matrix.target}}
+          override: true
 
-        - name: Build default features
-          uses: actions-rs/cargo@v1
-          with:
-            use-cross: true
-            command: build
-            args: --target ${{matrix.target}}
+      - name: Build default features
+        uses: actions-rs/cargo@v1
+        with:
+          use-cross: true
+          command: build
+          args: --target ${{matrix.target}}
 
-        - name: Run tests default features
-          uses: actions-rs/cargo@v1
-          with:
-            use-cross: true
-            command: test
-            args: --target ${{matrix.target}}
+      - name: Run tests default features
+        uses: actions-rs/cargo@v1
+        with:
+          use-cross: true
+          command: test
+          args: --target ${{matrix.target}}
 
-        - name: Build all features
-          uses: actions-rs/cargo@v1
-          with:
-            use-cross: true
-            command: build
-            args: --target ${{matrix.target}} --all-features
+      - name: Build all features
+        uses: actions-rs/cargo@v1
+        with:
+          use-cross: true
+          command: build
+          args: --target ${{matrix.target}} --all-features
 
-        - name: Run tests all features
-          uses: actions-rs/cargo@v1
-          with:
-            use-cross: true
-            command: test
-            args: --target ${{matrix.target}} --all-features
+      - name: Run tests all features
+        uses: actions-rs/cargo@v1
+        with:
+          use-cross: true
+          command: test
+          args: --target ${{matrix.target}} --all-features
 
-        - name: Build no features
-          uses: actions-rs/cargo@v1
-          with:
-            use-cross: true
-            command: build
-            args: --target ${{matrix.target}} --no-default-features
+      - name: Build no features
+        uses: actions-rs/cargo@v1
+        with:
+          use-cross: true
+          command: build
+          args: --target ${{matrix.target}} --no-default-features
 
-        - name: Run tests with no features
-          uses: actions-rs/cargo@v1
-          with:
-            use-cross: true
-            command: test
-            args: --target ${{matrix.target}} --no-default-features
+      - name: Run tests with no features
+        uses: actions-rs/cargo@v1
+        with:
+          use-cross: true
+          command: test
+          args: --target ${{matrix.target}} --no-default-features
 
-        - name: Build only async
-          uses: actions-rs/cargo@v1
-          with:
-            use-cross: true
-            command: build
-            args: --target ${{matrix.target}} --no-default-features --features async
+      - name: Build only async
+        uses: actions-rs/cargo@v1
+        with:
+          use-cross: true
+          command: build
+          args: --target ${{matrix.target}} --no-default-features --features async
 
-        - name: Run tests only async
-          uses: actions-rs/cargo@v1
-          with:
-            use-cross: true
-            command: test
-            args: --target ${{matrix.target}} --no-default-features --features async
+      - name: Run tests only async
+        uses: actions-rs/cargo@v1
+        with:
+          use-cross: true
+          command: test
+          args: --target ${{matrix.target}} --no-default-features --features async
 
-        - name: Build rustls
-          uses: actions-rs/cargo@v1
-          with:
-            use-cross: true
-            command: build
-            args: --target ${{matrix.target}} --no-default-features --features tokio_rustls
+      - name: Build rustls
+        uses: actions-rs/cargo@v1
+        with:
+          use-cross: true
+          command: build
+          args: --target ${{matrix.target}} --no-default-features --features tokio_rustls
 
-        - name: Run tests rustls
-          uses: actions-rs/cargo@v1
-          with:
-            use-cross: true
-            command: test
-            args: --target ${{matrix.target}} --no-default-features --features tokio_rustls
+      - name: Run tests rustls
+        uses: actions-rs/cargo@v1
+        with:
+          use-cross: true
+          command: test
+          args: --target ${{matrix.target}} --no-default-features --features tokio_rustls
 
-        - name: Build native_tls
-          uses: actions-rs/cargo@v1
-          with:
-            use-cross: true
-            command: build
-            args: --target ${{matrix.target}} --no-default-features --features tokio_native_tls
+      - name: Build native_tls
+        uses: actions-rs/cargo@v1
+        with:
+          use-cross: true
+          command: build
+          args: --target ${{matrix.target}} --no-default-features --features tokio_native_tls
 
-        - name: Run tests native_ts
-          uses: actions-rs/cargo@v1
-          with:
-            use-cross: true
-            command: test
-            args: --target ${{matrix.target}} --no-default-features --features tokio_native_tls
+      - name: Run tests native_ts
+        uses: actions-rs/cargo@v1
+        with:
+          use-cross: true
+          command: test
+          args: --target ${{matrix.target}} --no-default-features --features tokio_native_tls
