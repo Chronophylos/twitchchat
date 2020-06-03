@@ -5,6 +5,7 @@ on: [push]
 jobs:
   build:
     strategy:
+      fast-fail: false
       matrix:
         target:
           - aarch64-apple-ios
@@ -63,7 +64,6 @@ jobs:
             os: ubuntu-latest
           - target: x86_64-pc-windows-msvc
             os: ubuntu-latest
-        fast-fail: false
 
     runs-on: ${{matrix.os}}
 
