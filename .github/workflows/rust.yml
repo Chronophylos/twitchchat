@@ -6,16 +6,47 @@ jobs:
   build:
     strategy:
       matrix:
-        target: [x86_64-unknown-linux-gnu]
-        rust: [stable, nightly, beta]
-        os: [macos-latest, ubuntu-latest, windows-latest]
+        target:
+          - aarch64-apple-ios
+          - aarch64-linux-android
+          - aarch64-pc-windows-msvc
+          - arm-unknown-linux-gnueabi
+          - armv7-linux-androideabi
+          - armv7-unknown-linux-gnueabihf
+          - i686-linux-android
+          - i686-pc-windows-msvc
+          - i686-unknown-linux-gnu
+          - mips-unknown-linux-gnu
+          - powerpc-unknown-linux-gnu
+          - powerpc64-unknown-linux-gnu
+          - powerpc64le-unknown-linux-gnu
+          - riscv64gc-unknown-linux-gnu
+          - s390x-unknown-linux-gnu
+          - wasm32-unknown-emscripten
+          - x86_64-apple-darwin
+          - x86_64-linux-android
+          - x86_64-pc-windows-gnu
+          - x86_64-pc-windows-msvc
+          - x86_64-unknown-freebsd
+          - x86_64-unknown-linux-gnu
+          - x86_64-unknown-linux-gnu
+          - aarch64-apple-ios
+        rust:
+          - stable
+          - nightly
+          - beta
+        os:
+          - ubuntu-latest
         include:
-          - os: macos-latest
-            target: [aarch64-apple-ios, x86_64-apple-darwin]
-          - os: ubuntu-latest
-            target: [aarch64-linux-android, arm-unknown-linux-gnueabi, armv7-linux-androideabi, armv7-unknown-linux-gnueabihf, i686-linux-android, i686-unknown-linux-gnu, mips-unknown-linux-gnu, powerpc-unknown-linux-gnu, powerpc64-unknown-linux-gnu, powerpc64le-unknown-linux-gnu, riscv64gc-unknown-linux-gnu, s390x-unknown-linux-gnu, wasm32-unknown-emscripten, x86_64-linux-android, x86_64-pc-windows-gnu, x86_64-unknown-freebsd, x86_64-unknown-linux-gnu]
-          - os: windows-latest
-            target: [aarch64-pc-windows-msvc, i686-pc-windows-msvc, x86_64-pc-windows-msvc]
+          - target: aarch64-apple-ios
+            os: macos-latest
+          - target: x86_64-apple-ios
+            os: macos-latest
+        exclude:
+          - target: aarch64-apple-ios
+            os: ubuntu-latest
+          - target: x86_64-apple-ios
+            os: ubuntu-latest
 
     runs-on: ${{matrix.os}}
 
