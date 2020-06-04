@@ -1,5 +1,0 @@
-FROM rustembedded/cross:aarch64-linux-android-0.2.0
-
-RUN dpkg --add-architecture arm64 && \
-    apt-get update && \
-    apt-get install --assume-yes openssl:arm64
