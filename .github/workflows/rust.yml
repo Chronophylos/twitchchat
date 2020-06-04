@@ -50,91 +50,91 @@ jobs:
 
       - name: Build default features
         uses: actions-rs/cargo@v1
-        if: ${{ has_native_tls }}
+        if: ${{ matrix.has_native_tls }}
         with:
-          use-cross: ${{ use_cross }}
+          use-cross: ${{ matrix.use_cross }}
           command: build
           args: --target ${{ matrix.target }}
 
       - name: Run tests default features
         uses: actions-rs/cargo@v1
-        if: ${{ has_native_tls }}
+        if: ${{ matrix.has_native_tls }}
         with:
-          use-cross: ${{ use_cross }}
+          use-cross: ${{ matrix.use_cross }}
           command: test
           args: --target ${{ matrix.target }}
 
       - name: Build all features
         uses: actions-rs/cargo@v1
-        if: ${{ has_native_tls }}
+        if: ${{ matrix.has_native_tls }}
         with:
-          use-cross: ${{ use_cross }}
+          use-cross: ${{ matrix.use_cross }}
           command: build
           args: --target ${{ matrix.target }} --all-features
 
       - name: Run tests all features
         uses: actions-rs/cargo@v1
-        if: ${{ has_native_tls }}
+        if: ${{ matrix.has_native_tls }}
         with:
-          use-cross: ${{ use_cross }}
+          use-cross: ${{ matrix.use_cross }}
           command: test
           args: --target ${{ matrix.target }} --all-features
 
       - name: Build no features
         uses: actions-rs/cargo@v1
         with:
-          use-cross: ${{ use_cross }}
+          use-cross: ${{ matrix.use_cross }}
           command: build
           args: --target ${{ matrix.target }} --no-default-features
 
       - name: Run tests with no features
         uses: actions-rs/cargo@v1
         with:
-          use-cross: ${{ use_cross }}
+          use-cross: ${{ matrix.use_cross }}
           command: test
           args: --target ${{ matrix.target }} --no-default-features
 
       - name: Build only async
         uses: actions-rs/cargo@v1
         with:
-          use-cross: ${{ use_cross }}
+          use-cross: ${{ matrix.use_cross }}
           command: build
           args: --target ${{ matrix.target }} --no-default-features --features async
 
       - name: Run tests only async
         uses: actions-rs/cargo@v1
         with:
-          use-cross: ${{ use_cross }}
+          use-cross: ${{ matrix.use_cross }}
           command: test
           args: --target ${{ matrix.target }} --no-default-features --features async
 
       - name: Build rustls
         uses: actions-rs/cargo@v1
         with:
-          use-cross: ${{ use_cross }}
+          use-cross: ${{ matrix.use_cross }}
           command: build
           args: --target ${{ matrix.target }} --no-default-features --features tokio_rustls
 
       - name: Run tests rustls
         uses: actions-rs/cargo@v1
         with:
-          use-cross: ${{ use_cross }}
+          use-cross: ${{ matrix.use_cross }}
           command: test
           args: --target ${{ matrix.target }} --no-default-features --features tokio_rustls
 
       - name: Build native_tls
         uses: actions-rs/cargo@v1
-        if: ${{ has_native_tls }}
+        if: ${{ matrix.has_native_tls }}
         with:
-          use-cross: ${{ use_cross }}
+          use-cross: ${{ matrix.use_cross }}
           command: build
           args: --target ${{ matrix.target }} --no-default-features --features tokio_native_tls
 
       - name: Run tests native_tls
         uses: actions-rs/cargo@v1
-        if: ${{ has_native_tls }}
+        if: ${{ matrix.has_native_tls }}
         with:
-          use-cross: ${{ use_cross }}
+          use-cross: ${{ matrix.use_cross }}
           command: test
           args: --target ${{ matrix.target }} --no-default-features --features tokio_native_tls
   macos:
@@ -163,91 +163,91 @@ jobs:
 
       - name: Build default features
         uses: actions-rs/cargo@v1
-        if: ${{ has_native_tls }}
+        if: ${{ matrix.has_native_tls }}
         with:
-          use-cross: ${{ use_cross }}
+          use-cross: ${{ matrix.use_cross }}
           command: build
           args: --target ${{ matrix.target }}
 
       - name: Run tests default features
         uses: actions-rs/cargo@v1
-        if: ${{ has_native_tls }}
+        if: ${{ matrix.has_native_tls }}
         with:
-          use-cross: ${{ use_cross }}
+          use-cross: ${{ matrix.use_cross }}
           command: test
           args: --target ${{ matrix.target }}
 
       - name: Build all features
         uses: actions-rs/cargo@v1
-        if: ${{ has_native_tls }}
+        if: ${{ matrix.has_native_tls }}
         with:
-          use-cross: ${{ use_cross }}
+          use-cross: ${{ matrix.use_cross }}
           command: build
           args: --target ${{ matrix.target }} --all-features
 
       - name: Run tests all features
         uses: actions-rs/cargo@v1
-        if: ${{ has_native_tls }}
+        if: ${{ matrix.has_native_tls }}
         with:
-          use-cross: ${{ use_cross }}
+          use-cross: ${{ matrix.use_cross }}
           command: test
           args: --target ${{ matrix.target }} --all-features
 
       - name: Build no features
         uses: actions-rs/cargo@v1
         with:
-          use-cross: ${{ use_cross }}
+          use-cross: ${{ matrix.use_cross }}
           command: build
           args: --target ${{ matrix.target }} --no-default-features
 
       - name: Run tests with no features
         uses: actions-rs/cargo@v1
         with:
-          use-cross: ${{ use_cross }}
+          use-cross: ${{ matrix.use_cross }}
           command: test
           args: --target ${{ matrix.target }} --no-default-features
 
       - name: Build only async
         uses: actions-rs/cargo@v1
         with:
-          use-cross: ${{ use_cross }}
+          use-cross: ${{ matrix.use_cross }}
           command: build
           args: --target ${{ matrix.target }} --no-default-features --features async
 
       - name: Run tests only async
         uses: actions-rs/cargo@v1
         with:
-          use-cross: ${{ use_cross }}
+          use-cross: ${{ matrix.use_cross }}
           command: test
           args: --target ${{ matrix.target }} --no-default-features --features async
 
       - name: Build rustls
         uses: actions-rs/cargo@v1
         with:
-          use-cross: ${{ use_cross }}
+          use-cross: ${{ matrix.use_cross }}
           command: build
           args: --target ${{ matrix.target }} --no-default-features --features tokio_rustls
 
       - name: Run tests rustls
         uses: actions-rs/cargo@v1
         with:
-          use-cross: ${{ use_cross }}
+          use-cross: ${{ matrix.use_cross }}
           command: test
           args: --target ${{ matrix.target }} --no-default-features --features tokio_rustls
 
       - name: Build native_tls
         uses: actions-rs/cargo@v1
-        if: ${{ has_native_tls }}
+        if: ${{ matrix.has_native_tls }}
         with:
-          use-cross: ${{ use_cross }}
+          use-cross: ${{ matrix.use_cross }}
           command: build
           args: --target ${{ matrix.target }} --no-default-features --features tokio_native_tls
 
       - name: Run tests native_tls
         uses: actions-rs/cargo@v1
-        if: ${{ has_native_tls }}
+        if: ${{ matrix.has_native_tls }}
         with:
-          use-cross: ${{ use_cross }}
+          use-cross: ${{ matrix.use_cross }}
           command: test
           args: --target ${{ matrix.target }} --no-default-features --features tokio_native_tls
 
@@ -278,90 +278,90 @@ jobs:
 
       - name: Build default features
         uses: actions-rs/cargo@v1
-        if: ${{ has_native_tls }}
+        if: ${{ matrix.has_native_tls }}
         with:
-          use-cross: ${{ use_cross }}
+          use-cross: ${{ matrix.use_cross }}
           command: build
           args: --target ${{ matrix.target }}
 
       - name: Run tests default features
         uses: actions-rs/cargo@v1
-        if: ${{ has_native_tls }}
+        if: ${{ matrix.has_native_tls }}
         with:
-          use-cross: ${{ use_cross }}
+          use-cross: ${{ matrix.use_cross }}
           command: test
           args: --target ${{ matrix.target }}
 
       - name: Build all features
         uses: actions-rs/cargo@v1
-        if: ${{ has_native_tls }}
+        if: ${{ matrix.has_native_tls }}
         with:
-          use-cross: ${{ use_cross }}
+          use-cross: ${{ matrix.use_cross }}
           command: build
           args: --target ${{ matrix.target }} --all-features
 
       - name: Run tests all features
         uses: actions-rs/cargo@v1
-        if: ${{ has_native_tls }}
+        if: ${{ matrix.has_native_tls }}
         with:
-          use-cross: ${{ use_cross }}
+          use-cross: ${{ matrix.use_cross }}
           command: test
           args: --target ${{ matrix.target }} --all-features
 
       - name: Build no features
         uses: actions-rs/cargo@v1
         with:
-          use-cross: ${{ use_cross }}
+          use-cross: ${{ matrix.use_cross }}
           command: build
           args: --target ${{ matrix.target }} --no-default-features
 
       - name: Run tests with no features
         uses: actions-rs/cargo@v1
         with:
-          use-cross: ${{ use_cross }}
+          use-cross: ${{ matrix.use_cross }}
           command: test
           args: --target ${{ matrix.target }} --no-default-features
 
       - name: Build only async
         uses: actions-rs/cargo@v1
         with:
-          use-cross: ${{ use_cross }}
+          use-cross: ${{ matrix.use_cross }}
           command: build
           args: --target ${{ matrix.target }} --no-default-features --features async
 
       - name: Run tests only async
         uses: actions-rs/cargo@v1
         with:
-          use-cross: ${{ use_cross }}
+          use-cross: ${{ matrix.use_cross }}
           command: test
           args: --target ${{ matrix.target }} --no-default-features --features async
 
       - name: Build rustls
         uses: actions-rs/cargo@v1
         with:
-          use-cross: ${{ use_cross }}
+          use-cross: ${{ matrix.use_cross }}
           command: build
           args: --target ${{ matrix.target }} --no-default-features --features tokio_rustls
 
       - name: Run tests rustls
         uses: actions-rs/cargo@v1
         with:
-          use-cross: ${{ use_cross }}
+          use-cross: ${{ matrix.use_cross }}
           command: test
           args: --target ${{ matrix.target }} --no-default-features --features tokio_rustls
 
       - name: Build native_tls
         uses: actions-rs/cargo@v1
-        if: ${{ has_native_tls }}
+        if: ${{ matrix.has_native_tls }}
         with:
-          use-cross: ${{ use_cross }}
+          use-cross: ${{ matrix.use_cross }}
           command: build
           args: --target ${{ matrix.target }} --no-default-features --features tokio_native_tls
 
       - name: Run tests native_tls
         uses: actions-rs/cargo@v1
-        if: ${{ has_native_tls }}
+        if: ${{ matrix.has_native_tls }}
         with:
-          use-cross: ${{ use_cross }}
+          use-cross: ${{ matrix.use_cross }}
           command: test
           args: --target ${{ matrix.target }} --no-default-features --features tokio_native_tls
