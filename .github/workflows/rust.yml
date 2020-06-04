@@ -8,6 +8,7 @@ on:
 
 jobs:
   linux:
+    name: Linux
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -138,6 +139,7 @@ jobs:
           command: test
           args: --target ${{ matrix.target }} --no-default-features --features tokio_native_tls
   macos:
+    name: MacOS
     runs-on: macos-latest
     strategy:
       fail-fast: false
@@ -252,6 +254,7 @@ jobs:
           args: --target ${{ matrix.target }} --no-default-features --features tokio_native_tls
 
   windows:
+    name: Windows
     runs-on: windows-latest
     strategy:
       fail-fast: false
